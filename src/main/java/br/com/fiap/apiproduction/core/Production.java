@@ -2,13 +2,14 @@ package br.com.fiap.apiproduction.core;
 
 import br.com.fiap.apiproduction.dataprovider.repository.entity.ProductionEntity;
 import br.com.fiap.apiproduction.entrypoint.dto.response.ProductionResponse;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 import java.util.UUID;
 
 public class Production {
 
-    private String productionId;
+    private ObjectId productionId;
 
     private String clientCpf;
 
@@ -19,6 +20,15 @@ public class Production {
     private Double orderPrice;
 
     private List<UUID> productId;
+
+    public Production(ObjectId productionId, String clientCpf, UUID orderId, Boolean isPaymentReceived, Double orderPrice, List<UUID> productId) {
+        this.productionId = productionId;
+        this.clientCpf = clientCpf;
+        this.orderId = orderId;
+        this.isPaymentReceived = isPaymentReceived;
+        this.orderPrice = orderPrice;
+        this.productId = productId;
+    }
 
     public Production(String clientCpf, UUID orderId, Boolean isPaymentReceived, Double orderPrice, List<UUID> productId) {
         this.clientCpf = clientCpf;
@@ -32,11 +42,11 @@ public class Production {
 
     }
 
-    public String getProductionId() {
+    public ObjectId getProductionId() {
         return productionId;
     }
 
-    public void setProductionId(String productionId) {
+    public void setProductionId(ObjectId productionId) {
         this.productionId = productionId;
     }
 
@@ -81,7 +91,7 @@ public class Production {
     }
 
     public ProductionResponse toResponse() {
-        return new ProductionResponse(this.getProductionId(), this.clientCpf, this.getOrderId(), this.getPaymentReceived(),
+        return new ProductionResponse(this.getProductionId().toHexString(), this.clientCpf, this.getOrderId(), this.getPaymentReceived(),
                 this.getOrderPrice(), this.getProductId());
     }
 

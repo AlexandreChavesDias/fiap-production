@@ -1,10 +1,14 @@
 package br.com.fiap.apiproduction.dataprovider.repository.entity;
 
 import br.com.fiap.apiproduction.core.Production;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +19,9 @@ import java.util.UUID;
 public class ProductionEntity {
 
     @Id
-    private String productionId;
+    @Field(name = "_id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private ObjectId productionId;
 
     private String clientCpf;
 
@@ -38,7 +44,7 @@ public class ProductionEntity {
         this.productId = production.getProductId();
     }
 
-    public ProductionEntity(String productionId, String clientCpf, UUID orderId, Boolean isPaymentReceived, Double orderPrice, List<UUID> productId) {
+    public ProductionEntity(ObjectId productionId, String clientCpf, UUID orderId, Boolean isPaymentReceived, Double orderPrice, List<UUID> productId) {
         this.productionId = productionId;
         this.clientCpf = clientCpf;
         this.orderId = orderId;
@@ -50,6 +56,7 @@ public class ProductionEntity {
 
     public Production toProduction() {
         return new Production(
+                this.productionId,
                 this.clientCpf,
                 this.orderId,
                 this.isPaymentReceived,

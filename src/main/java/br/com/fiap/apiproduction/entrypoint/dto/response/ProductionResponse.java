@@ -8,7 +8,7 @@ import java.util.UUID;
 public record ProductionResponse(String productionId, String clientCpf, UUID orderId, Boolean isPaymentReceived, Double orderPrice, List<UUID> productId) {
 
     public static ProductionResponse fromClientResponse(Production production) {
-        return new ProductionResponse(production.getProductionId(), production.getClientCpf(), production.getOrderId(), production.getPaymentReceived(),
+        return new ProductionResponse(production.getProductionId().toHexString(), production.getClientCpf(), production.getOrderId(), production.getPaymentReceived(),
                 production.getOrderPrice(), production.getProductId());
     }
 
