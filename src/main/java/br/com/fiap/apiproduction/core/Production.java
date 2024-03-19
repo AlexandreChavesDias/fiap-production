@@ -98,10 +98,10 @@ public class Production {
     public ProductionEntity toEntity() {
         return new ProductionEntity(
                 this.productionId
-                ,this.clientCpf
-                ,this.orderId
-                ,this.isPaymentReceived
-                ,this.orderPrice
-                ,this.productId);
+                , this.clientCpf
+                , this.orderId
+                , this.isPaymentReceived
+                , this.orderPrice
+                , this.productId);
     }
 }

@@ -35,6 +35,7 @@ public class ProductionEntity {
 
     public ProductionEntity() {
     }
+
     public ProductionEntity(Production production) {
         this.productId = production.getProductId();
         this.clientCpf = production.getClientCpf();

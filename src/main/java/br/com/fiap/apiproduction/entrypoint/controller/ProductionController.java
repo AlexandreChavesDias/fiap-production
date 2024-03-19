@@ -1,6 +1,5 @@
 package br.com.fiap.apiproduction.entrypoint.controller;
 
-import br.com.fiap.apiproduction.core.Production;
 import br.com.fiap.apiproduction.core.usecase.ProductionUseCase;
 import br.com.fiap.apiproduction.entrypoint.dto.request.ProductionRequest;
 import br.com.fiap.apiproduction.entrypoint.dto.response.ProductionResponse;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/production")

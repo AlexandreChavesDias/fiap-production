@@ -2,7 +2,6 @@ package br.com.fiap.apiproduction.dataprovider.Kafka.message;
 
 
 import br.com.fiap.apiproduction.dataprovider.Kafka.OrderEvent;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;

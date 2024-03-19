@@ -7,7 +7,6 @@ import br.com.fiap.apiproduction.dataprovider.repository.entity.ProductionEntity
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
 
 @Component
 public class ProductionRepositoryImpl implements ProductionRepository {

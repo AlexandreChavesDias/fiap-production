@@ -31,7 +31,7 @@ public class KafkaConsumerConfig {
     public ConsumerFactory<String, OrderMessage> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(BOOTSTRAP_SERVERS_CONFIG, CONFLUENT_CLOUD_BOOTSTRAP_SERVERS);
-        props.put(SASL_JAAS_CONFIG, "org.apache.kafka.common.security.plain.PlainLoginModule required username=\""+CONFLUENT_CLOUD_API_KEY+"\" password=\""+CONFLUENT_CLOUD_API_SECRET+"\";");
+        props.put(SASL_JAAS_CONFIG, "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"" + CONFLUENT_CLOUD_API_KEY + "\" password=\"" + CONFLUENT_CLOUD_API_SECRET + "\";");
         props.put(SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
         props.put(SASL_MECHANISM, "PLAIN");
         props.put(KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
