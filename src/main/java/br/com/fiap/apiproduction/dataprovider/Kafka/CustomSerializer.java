@@ -14,7 +14,7 @@ public class CustomSerializer implements Serializer<OrderMessage> {
     @Override
     public byte[] serialize(String s, OrderMessage orderMessage) {
         try {
-            if (orderMessage == null){
+            if (orderMessage == null) {
                 return null;
             }
             return objectMapper.writeValueAsBytes(orderMessage);

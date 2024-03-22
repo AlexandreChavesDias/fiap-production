@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class ApiProductionApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApiProductionApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApiProductionApplication.class, args);
+    }
 
 }
